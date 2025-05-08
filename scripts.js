@@ -77,46 +77,67 @@ function formClear() {
 
 //////// Audio player ////////
 
-const audio = document.getElementById('audio');
-const playPauseBtn = document.getElementById('playPause');
-const progress = document.getElementById('progress');
-const currentTimeDisplay = document.getElementById('currentTime');
-const durationDisplay = document.getElementById('duration');
-const volumeSlider = document.getElementById('volume');
+document.querySelectorAll('.custom-audio-player').forEach(player => {
+  const audio = player.querySelector('audio');
+  const playPauseBtn = player.querySelector('.playPause');
+  const progress = player.querySelector('.progress');
+  const currentTimeDisplay = player.querySelector('.currentTime');
+  const durationDisplay = player.querySelector('.duration');
+  const volumeSlider = player.querySelector('.volume');
 
-let isPlaying = false;
+  // ⏯ Play/Pause
+  playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      // Pausar os outros áudios
+      document.querySelectorAll('audio').forEach(otherAudio => {
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+          const otherPlayer = otherAudio.closest('.custom-audio-player');
+          if (otherPlayer) {
+            const btn = otherPlayer.querySelector('.playPause');
+            if (btn) btn.textContent = '▶';
+          }
+        }
+      });
 
-// Formata tempo (segundos) para mm:ss
-function formatTime(seconds) {
-  const min = Math.floor(seconds / 60);
-  const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
-  return `${min}:${sec}`;
-}
+      audio.play();
+      playPauseBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = '▶';
+    }
+  });
 
-playPauseBtn.addEventListener('click', () => {
-  if (isPlaying) {
-    audio.pause();
-    playPauseBtn.textContent = '▶';
-  } else {
-    audio.play();
-    playPauseBtn.textContent = '⏸';
-  }
-  isPlaying = !isPlaying;
-});
+  // ⏱ Duração
+  audio.addEventListener('loadedmetadata', () => {
+    durationDisplay.textContent = formatTime(audio.duration);
+  });
 
-audio.addEventListener('loadedmetadata', () => {
-  durationDisplay.textContent = formatTime(audio.duration);
-});
+  // ⏳ Progresso
+  audio.addEventListener('timeupdate', () => {
+    progress.value = (audio.currentTime / audio.duration) * 100;
+    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+  });
 
-audio.addEventListener('timeupdate', () => {
-  progress.value = (audio.currentTime / audio.duration) * 100;
-  currentTimeDisplay.textContent = formatTime(audio.currentTime);
-});
+  // 🔁 Alterar progresso manualmente
+  progress.addEventListener('input', () => {
+    audio.currentTime = (progress.value / 100) * audio.duration;
+  });
 
-progress.addEventListener('input', () => {
-  audio.currentTime = (progress.value / 100) * audio.duration;
-});
-
-volumeSlider.addEventListener('input', () => {
+  // 🔊 Volume
+  volumeSlider.addEventListener('input', () => {
     audio.volume = volumeSlider.value;
+  });
+
+  // ⏹ Quando o áudio terminar
+  audio.addEventListener('ended', () => {
+    playPauseBtn.textContent = '▶';
+  });
+
+  // 🧠 Formatador de tempo
+  function formatTime(seconds) {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${min}:${sec}`;
+  }
 });

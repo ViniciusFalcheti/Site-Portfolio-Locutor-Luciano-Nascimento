@@ -102,23 +102,44 @@
             </iframe>
         </div>
         <div class="portfolio-bottom container even-columns py-lg flex items-center justify-center">
-            <div class="demo-luciano">
-                <header>
-                    <strong>Ouça</strong>
-                    <h2>Uma amostra do meu trabalho</h2>
-                </header>
-                <div class="player-wrapper card">
-                    <div class="custom-audio-player">
-                        <audio id="audio" src="assets/portfolio/demo-luciano.mp3"></audio>
-                
-                        <div class="controls">
-                            <button id="playPause">▶</button>
-                            <span id="currentTime">00:00</span>
-                            <input type="range" id="progress" value="0" />
-                            <span id="duration">01:08</span>
-                            <div class="volume-control">
-                                <span>🔊</span>
-                                <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
+            <div class="demos-audio flex flex-col gap-1">
+                <div class="demo-luciano">
+                    <header>
+                        <strong>Ouça</strong>
+                        <h2>Uma amostra do meu trabalho</h2>
+                    </header>
+                    <div class="player-wrapper card">
+                        <div class="custom-audio-player">
+                            <audio class="audio" src="assets/portfolio/demo-luciano2.mp3"></audio>
+                    
+                            <div class="controls">
+                                <button class="playPause">▶</button>
+                                <span class="currentTime">00:00</span>
+                                <input type="range" class="progress" value="0" />
+                                <span class="duration">02:00</span>
+                                <div class="volume-control">
+                                    <span>🔊</span>
+                                    <input type="range" class="volume" min="0" max="1" step="0.01" value="1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-luciano">
+                    <div class="player-wrapper card">
+                        <div class="custom-audio-player">
+                            <audio class="audio" src="assets/portfolio/demo-luciano.mp3"></audio>
+                    
+                            <div class="controls">
+                                <button class="playPause">▶</button>
+                                <span class="currentTime">00:00</span>
+                                <input type="range" class="progress" value="0" />
+                                <span class="duration">01:08</span>
+                                <div class="volume-control">
+                                    <span>🔊</span>
+                                    <input type="range" class="volume" min="0" max="1" step="0.01" value="1" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,7 +190,6 @@
                 
                 </form>
             </div>
-        <!-- </div> -->
     </section>
     <footer>
         <div class="container py-xl grid">
@@ -180,7 +200,10 @@
                     <a href="https://www.youtube.com/@lucianonascimento5672" class="social" aria-label="youtube" target="_blank"></a>
                     <a href="https://soundcloud.com/lucianovoznascimento" class="social" aria-label="soundcloud" target="_blank"></a>
                 </div>
-                <span class="copy">@2025 Vinicius Falcheti.</span>
+
+                <a href="https://github.com/ViniciusFalcheti">
+                    <span class="copy">@2025 Vinicius Falcheti.</span>
+                </a>
             </section>  
         </div>
     </footer>

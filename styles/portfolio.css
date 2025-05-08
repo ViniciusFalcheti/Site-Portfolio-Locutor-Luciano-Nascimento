@@ -45,7 +45,7 @@
         flex-wrap: wrap;
     }
       
-    & #playPause {
+    & .playPause {
         background: none;
         border: none;
         font-size: 28px;
@@ -53,13 +53,13 @@
         cursor: pointer;
     }
       
-    & #progress {
+    & .progress {
         flex: 1;
         accent-color: red;
     }
       
-    & #currentTime,
-    & #duration {
+    & .currentTime,
+    & .duration {
         font-size: 14px;
         min-width: 50px;
         text-align: center;
@@ -71,7 +71,7 @@
         gap: 5px;
     }
       
-    & #volume {
+    & .volume {
         width: 80px;
         accent-color: red;
     }
@@ -115,7 +115,7 @@
             white-space: nowrap;
         }
         
-        & #progress {
+        & .progress {
             flex: 1;
             min-width: 100px;
         }
@@ -132,6 +132,10 @@
     #portfolio {
         & .portfolio-bottom {
             flex-direction: column;
+        }
+
+        & .demos-audio {
+            gap: 0.25rem;
         }
 
         & .demo-luciano {
@@ -158,11 +162,11 @@
             padding: 10px;
         }
 
-        & #playPause {
+        & .playPause {
             font-size: 20px;
         }
 
-        & #currentTime, & #duration {
+        & .currentTime, & .duration {
             min-width: 20px;
         }
     }
