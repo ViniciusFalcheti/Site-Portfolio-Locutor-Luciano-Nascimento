@@ -1,0 +1,173 @@
+#portfolio {
+    & .portfolio-bottom {
+        display: flex;
+        flex-direction: row;
+    } 
+
+    & .demo-luciano {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 560px;
+
+        & header {
+            text-align: center;
+            & h2 {
+                font-size: 2rem;
+                color: #fff;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    & .video-luciano {
+        width: 560px;
+        height: 315px;
+    }
+    
+    & .player-wrapper {
+        width: 560px;
+        max-width: 90%;
+        background-color: var(--surface-color);
+        border: 1px solid var(--stroke-color);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      }
+      
+    & .custom-audio-player {
+        padding: 20px;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+      
+    & .controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+      
+    & #playPause {
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+    }
+      
+    & #progress {
+        flex: 1;
+        accent-color: red;
+    }
+      
+    & #currentTime,
+    & #duration {
+        font-size: 14px;
+        min-width: 50px;
+        text-align: center;
+    }
+      
+    & .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+      
+    & #volume {
+        width: 80px;
+        accent-color: red;
+    }
+}
+
+@media (width < 80em) {
+    #portfolio {
+        & .demo-luciano {
+            flex: 1;
+
+            & header {
+                text-align: center;
+                & h2 {
+                    font-size: 1.6rem;
+                    color: #fff;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        & .video-luciano {
+            width: 350px;
+            height: 197px;
+        }
+
+        & .player-wrapper {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        & .controls {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        & .controls > * {
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        
+        & #progress {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        & .volume-control {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+}
+
+@media (width < 40em) {
+    #portfolio {
+        & .portfolio-bottom {
+            flex-direction: column;
+        }
+
+        & .demo-luciano {
+
+            & header {
+                text-align: center;
+                & h2 {
+                    font-size: 1.2rem;
+                    color: #fff;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        & .video-luciano {
+            width: 100%;
+        }
+
+        & .player-wrapper {
+            margin-bottom: 1rem;
+        }
+
+        & .custom-audio-player {
+            padding: 10px;
+        }
+
+        & #playPause {
+            font-size: 20px;
+        }
+
+        & #currentTime, & #duration {
+            min-width: 20px;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+a.social {
+    --bg-image: "";
+    background-image: var(--bg-image);
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+
+    -webkit-background-clip: initial;
+    background-clip: initial;
+
+    &[aria-label="linkedin"] {
+        --bg-image: url(../assets/icons/linkedin.svg);
+        /* width: 1.3rem;
+        height: 1.3rem; */
+        
+        &:hover {
+            --bg-image: url(../assets/icons/linkedin-hover.svg);
+        }
+    }
+
+    &[aria-label="instagram"] {
+        --bg-image: url(../assets/icons/instagram.svg);
+        
+        &:hover {
+            --bg-image: url(../assets/icons/instagram-hover.svg);
+        }
+    }
+
+    &[aria-label="youtube"] {
+        --bg-image: url(../assets/icons/youtube.svg);
+        
+        &:hover {
+            --bg-image: url(../assets/icons/youtube-hover.svg);
+        }
+    }
+
+    &[aria-label="soundcloud"] {
+        --bg-image: url(../assets/icons/soundcloud.svg);
+        
+        &:hover {
+            --bg-image: url(../assets/icons/soundcloud-hover.svg);
+        }
+    }
+}
